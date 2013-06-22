@@ -3,18 +3,17 @@
 <table>
   <tr>
     <th>List of things I need to do</th>
-    <th></th>
+    <th>list</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @to_dos.each do |to_do| %>
   <tr>
-    <td><%= to_do.list %></td>
+    <td><%= link_to to_do.list, to_do, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <td><%= link_to 'Show', to_do %></td>
     <td><%= link_to 'Edit To Do', edit_to_do_path(to_do) %></td>
-    <td><%= link_to 'Delete To Do', to_do, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+    </tr>
 <% end %>
 </table>
 
